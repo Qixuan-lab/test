@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  mytest:
+    build:
+      context: ./
+      dockerfile: dockerfile  
+
+    image: mytest:v1.0.0 
+    container_name: mytest  
+    ports:
+      - '8080:8080'
+    restart: always  
