@@ -5,7 +5,7 @@ services:
       context: ./
       dockerfile: Dockerfile  
 
-    image: mytest:v1.0.0 
+    image: mytest:v2.0.0 
     container_name: mytest  
     ports:
       - '8081:8081'
