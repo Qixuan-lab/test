@@ -3,7 +3,7 @@ services:
   mytest:
     build:
       context: ./
-      dockerfile: dockerfile  
+      dockerfile: Dockerfile  
 
     image: mytest:v1.0.0 
     container_name: mytest  
