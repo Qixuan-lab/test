@@ -1,12 +1,11 @@
 pipeline {
     agent any
-    // 修正点1: 这里必须是 stages (复数)
+   
     stages { 
-        
-        // 修正点2: 所有的括号改成英文括号 ()
+       
         stage('拉取仓库代码') {
             steps {
-                // checkout 语句本身看起来是没问题的，只要插件已安装
+               
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Qixuan-lab/test.git']])
                 echo '拉取git的仓库代码 - SUCCESS'
             }
