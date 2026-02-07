@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 		
 	public static void main(String[] args) {
-		System.out.println("成功运行");
+		System.out.println("成功运行v3.0.0");
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
