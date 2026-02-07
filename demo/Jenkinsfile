@@ -6,7 +6,7 @@ pipeline {
         stage('拉取仓库代码') {
             steps {
                
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Qixuan-lab/test.git']])
+                checkout scmGit(branches: [[name: '$tag']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Qixuan-lab/test.git']])
                 echo '拉取git的仓库代码 - SUCCESS'
             }
         }
