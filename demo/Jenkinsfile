@@ -21,6 +21,7 @@ pipeline {
 
         stage('通过SonarQube进行代码的质量检测') {
             steps {
+                sh '/var/jenkins_home/sonar-scanner/bin/sonar-scanner -Dsonar.source=./demo -Dsonar.projectname=${JOB_NAME} -Dsonar.projectKey=${JOB_NAME} -Dsonar.java.binaries=./demo/target/ -Dsonar.login=8b6df009ba4f9410ca051ad2e6f7586201cc38e4'
                 echo '通过SonarQube进行代码的检测-SUCCESS '
             }
         }
