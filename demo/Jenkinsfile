@@ -1,6 +1,12 @@
 pipeline {
-    agent any
-   
+   agent any
+   environment{
+     harborUser = 'admin' 
+     harborPassword = 'Harbor12345'  
+     harborAddr = '38.76.197.120:80' 
+     harborRepo = 'demotest1'
+     
+   }
     stages { 
        
         stage('拉取仓库代码') {
@@ -36,6 +42,9 @@ pipeline {
 
         stage('将镜像推送到harbor镜像仓库') {
             steps {
+                sh '''docker  login  -u  ${harborUser} -p ${harborPassword}  
+                      docker  tag  ${JOB_NAME}:${tag} ${harborAddr}/${harborRepo}/${JOB_NAME}:${tag}
+                      docker push ${harborAddr}/${harborRepo}/${JOB_NAME}:${tag}'''
                 echo '将镜像推送到harbor镜像仓库-SUCCESS'
             }
         }
