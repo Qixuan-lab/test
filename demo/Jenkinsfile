@@ -28,6 +28,8 @@ pipeline {
 
         stage('通过Docker进行构建自定义镜') {
             steps {
+                sh '''mv ./demo/target/*.jar  ./demo/docker  
+                docker build  -t  ${JOB_NAME}:${tag} ./demo/docker  '''
                 echo '通过Docker进行构建自定义镜像-SUCCESS '
             }
         }
