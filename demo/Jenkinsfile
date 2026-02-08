@@ -42,7 +42,7 @@ pipeline {
 
         stage('将镜像推送到harbor镜像仓库') {
             steps {
-                sh '''docker  login  -u  ${harborUser} -p ${harborPassword}  
+                sh '''docker  login  -u  ${harborUser} -p ${harborPassword}  ${harborAddr}
                       docker  tag  ${JOB_NAME}:${tag} ${harborAddr}/${harborRepo}/${JOB_NAME}:${tag}
                       docker push ${harborAddr}/${harborRepo}/${JOB_NAME}:${tag}'''
                 echo '将镜像推送到harbor镜像仓库-SUCCESS'
